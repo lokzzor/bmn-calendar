@@ -1,0 +1,16 @@
+.calendarstyle{
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    border-top-right-radius: 0.6em;
+    border-top-left-radius: 0.6em;
+    background: #394264;
+    position: relative;
+}
+.MuiFabbut {
+    color: #fff !important;
+    background-color: #f31313 !important;
+    position: sticky !important;
+    height: 50px;
+    left: 88%;
+    bottom: 220px;
+    z-index: 2;
+} 

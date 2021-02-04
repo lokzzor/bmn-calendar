@@ -1,1 +1,1 @@
-# bmn-calendar
+# BM@N-Calendar-App

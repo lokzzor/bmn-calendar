@@ -1,0 +1,412 @@
+/* Weather */
+
+.weather {
+    width: 124%;
+    margin-left: -24%;
+    height: 100%;
+  }
+  
+  .flex-2side {
+    display: flex;
+    height: 100%;
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 0.6em;
+  }
+  
+  .flex-2day {
+    display: flex;
+    font-size: 30px;
+    text-transform: capitalize;
+    justify-content: center;
+    color: white;
+    padding: 0 0 0 25%;
+    text-shadow: 3px 5px 5px #11171447, 3px 0px 6px #1c22374d;
+  }
+  
+  .icondeg {
+    width: 28%;
+    margin: auto 1%;
+  }
+  
+  .icondegdiv {
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    text-shadow: 3px 5px 5px #11171473, 3px 0px 6px #1c223759;
+  }
+  .iconpad {
+    width: 34%;
+  }
+  
+  .city-info {
+    display: block;
+    margin: 0;
+    color: white;
+    padding: 6% 0% 6% 8%;
+    letter-spacing: 2px;
+    font-weight: bold;
+    line-height: 1.6;
+  }
+  
+  .cityinf1 {
+    font-size: 1.23em;
+    letter-spacing: 0.05em;
+    font-family: -apple-system, BlinkMacSystemFont, "SpaceGrotesk", "Lato",
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  
+  .cityinf2 {
+    align-items: center;
+    font-size: 1em;
+    font: normal 100%/1.4 "SpaceGrotesk", "Lato", "Open Sans",
+      "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    display: flex;
+    letter-spacing: 0.05em;
+  }
+  
+  .info-deg {
+    display: flex;
+    padding: 0% 3% 0% 14%;
+  }
+  
+  .temp {
+    margin: 0% auto;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 6rem;
+    color: white;
+    text-align: center;
+    text-shadow: 3px 5px 5px #11171440, 3px 0px 6px #1c223726;
+  }
+  
+  .parameter {
+    display: flex;
+    flex-direction: column;
+    width: 76%;
+  }
+  
+  .cursor {
+    cursor: default;
+  }
+  
+  .iconsize {
+    width: 41px;
+  }
+  
+  .iconsizetext {
+    color: white;
+    padding-left: 8px !important;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 1em rgba(0, 0, 0, 0.6);
+    font: normal 130%/1.4 "SpaceGrotesk", "Lato", "Open Sans",
+      "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+
+  #cloud {
+    animation: cloud 2.5s ease-in-out;
+    -webkit-animation: cloud 2.5s ease-in-out;
+    -moz-animation: cloud 2.5s ease-in-out;
+    -o-animation: cloud 2.5s ease-in-out;
+  }
+  @keyframes cloud {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  @-webkit-keyframes cloud {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  @-moz-keyframes cloud {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  @-o-keyframes cloud {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  #drop1 {
+    animation: drop1 2s linear;
+    -webkit-animation: drop1 2s linear;
+    -moz-animation: drop1 2s linear;
+    -o-animation: drop1 2s linear;
+  }
+  #drop2 {
+    animation: drop2 2s linear;
+    -webkit-animation: drop2 2s linear;
+    -moz-animation: drop2 2s linear;
+    -o-animation: drop2 2s linear;
+  }
+  #drop3 {
+    animation: drop3 2s linear;
+    -webkit-animation: drop3 2s linear;
+    -moz-animation: drop3 2s linear;
+    -o-animation: drop3 2s linear;
+  }
+  @keyframes drop1 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-webkit-keyframes drop1 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-moz-keyframes drop1 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-o-keyframes drop1 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @keyframes drop2 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-webkit-keyframes drop2 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-moz-keyframes drop2 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-o-keyframes drop2 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @keyframes drop3 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-webkit-keyframes drop3 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-moz-keyframes drop3 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  @-o-keyframes drop3 {
+    0% {
+      opacity: 0.4;
+      transform: translateY(-80%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(96%);
+    }
+  }
+  #wind {
+    animation: wind 2.5s ease-in-out;
+    -webkit-animation: wind 2.5s ease-in-out;
+    -moz-animation: wind 2.5s ease-in-out;
+    -o-animation: wind 2.5s ease-in-out;
+  }
+  @keyframes wind {
+    0% {
+      opacity: 0.5;
+      transform: translateX(-60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(70%);
+    }
+  }
+  @-webkit-keyframes wind {
+    0% {
+      opacity: 0.5;
+      transform: translateX(-60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(70%);
+    }
+  }
+  @-moz-keyframes wind {
+    0% {
+      opacity: 0.5;
+      transform: translateX(-60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(70%);
+    }
+  }
+  @-o-keyframes wind {
+    0% {
+      opacity: 0.5;
+      transform: translateX(-60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(70%);
+    }
+  }
+  #temp {
+    animation: temp 2.5s both linear;
+    -webkit-animation: temp 2.5s both linear;
+    -moz-animation: temp 2.5s both linear;
+    -o-animation: temp 2.5s both linear;
+  }
+  @keyframes temp {
+    0% {
+      opacity: 0.3;
+      transform: translate(2px, 1px) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(3px, -2px) rotate(-1deg);
+    }
+  }
+  @-webkit-keyframes temp {
+    0% {
+      opacity: 0.3;
+      transform: translate(2px, 1px) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(3px, -2px) rotate(-1deg);
+    }
+  }
+  @-moz-keyframes temp {
+    0% {
+      opacity: 0.3;
+      transform: translate(2px, 1px) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(3px, -2px) rotate(-1deg);
+    }
+  }
+  @-o-keyframes temp {
+    0% {
+      opacity: 0.3;
+      transform: translate(2px, 1px) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(3px, -2px) rotate(-1deg);
+    }
+  }
+  
+  #iconweather {
+    animation: dayind 2.5s infinite ease-in-out;
+    animation-iteration-count: 1;
+  }
+  @keyframes dayind {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  

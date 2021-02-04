@@ -1,0 +1,13 @@
+.cloud-service{
+    background: #394264;
+    background: linear-gradient( to top, rgb(0 0 0 / 0%) 0%, rgb(82 100 111 / 62%) 53%, rgb(82 133 167) 100%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 0.6em;
+}
+.cloud-service-cloud {
+    padding: 7%;
+}

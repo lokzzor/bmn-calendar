@@ -1,0 +1,48 @@
+/* Chart */
+
+.chart-state {
+  background: linear-gradient(210deg, #3e0e0e40, #f12323);
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.6em;
+}
+.room-event {
+  /*     background: linear-gradient( to top, rgb(161, 219, 255) 0%, rgb(203, 235, 255) 53%, rgb(240, 249, 255) 100% );     
+       background: linear-gradient(210deg, #00c6ffd1, #0065e2);  
+  
+   background: linear-gradient(150deg, #0c000040, #184bdc); 
+  */
+  background: linear-gradient(150deg, #0c000040, #c3577eb3);
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.6em;
+}
+
+.chart-title {
+  color: white;
+  letter-spacing: 1px;
+  display: block;
+  line-height: 60px;
+  margin: 0;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: default;
+}
+
+.chart-title2 {
+  color: black;
+  letter-spacing: 1px;
+}
+
+.sizecharts {
+  width: 100%;
+  height: 290px;
+  margin: 0 auto;
+}
+
+.sizecharts>div>canvas {
+  height: 270px !important;
+  width: auto !important;
+  display: flex;
+  position: inherit !important;
+  margin: 0px auto !important;
+}

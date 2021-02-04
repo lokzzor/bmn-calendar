@@ -1,0 +1,117 @@
+.alert-add-room{
+    position: absolute;
+    top: 13%;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    width: 22%;
+    cursor: default;
+    color: #fff !important;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5) !important;
+    font-size: 18px !important;
+    transition: all ease 0.250s;
+    
+  }
+  .add-room-background{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+.add-room-form-room-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 38%;
+    left: 14%;
+}
+.add-room-form-room-content > div{
+    margin-top: 7%;
+    background: whitesmoke;
+    border-radius: 0.6em;
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.room-side{
+    display: flex;
+}
+.room-right-side{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.room-modalwrapper {
+    width: 42em;
+    height: auto;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    color: #000;
+    position: relative;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.room-modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2%;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+}
+
+.add-room-modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+  .add-room-modal-close{
+    font-size: 1.25rem !important;
+  }
+  .add-room-h2{
+    font-weight: 600;
+    font-size: 1.73em;
+    font-family: -apple-system, BlinkMacSystemFont, "SpaceGrotesk", "Lato", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    cursor: default;
+    margin-left: 4%;  
+  }
+  .add-room-closebutton{
+    cursor: pointer;
+    background-color: red;
+    border-radius: 50%;
+    padding: 0.8%;
+    line-height: 0;
+    color: white;
+    z-index: 10;
+  }
+  .add-room-content-form{
+    height: 88%;
+    display: flex;
+    padding: 2% 4% 2% 4%;  
+  }
+  .add-room-content-form-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .add-room-content-form-name1{
+    width: 70%;
+    border-radius: 3.6px;
+    line-height: 3.6;
+    font-size: 1.1rem;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
+  .add-room-content-form-name2{
+  width: auto;
+  margin-right: 9%;
+  }
+  .room-side  .MuiFormLabel-root.Mui-focused{ border-radius: 0.6em; background: #f5f5f5; padding: 3px 12px }
+  .room-side  .MuiInputLabel-outlined{border-radius: 0.6em; background: #f5f5f5; padding: 3px 12px}
