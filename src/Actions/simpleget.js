@@ -10,7 +10,11 @@ export const calendarSelect = () => {
                 title: n.event_name,
                 startDate:n.event_start,
                 endDate:n.event_end,
+                location:"Room - "+ n.room_name,
+                person:"Author - "+n.person_login,
+                conform:n.admin_login
               }) );
+              for(let i = 0; i < response.data.length; i++) {if(response.data[i].conform == null) { response.data[i].color = '#808080';}else{response.data[i].color = '';}}
             dispatch(selectcalendar(response.data))
         } catch (e) {
             console.log(e)

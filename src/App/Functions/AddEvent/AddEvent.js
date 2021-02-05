@@ -10,7 +10,6 @@ import { addevent, getRoomsMap } from '../../../Actions/simpleget'
 import { TextField, IconButton, InputBase, ListItem ,Checkbox, MenuItem, FormControlLabel, InputAdornment} from '@material-ui/core'
 import { red, blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
-import PlaceIcon from '@material-ui/icons/Place';
 import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from "@material-ui/pickers";
 
 import CloseIcon from '@material-ui/icons/Close';
@@ -25,6 +24,7 @@ export const Eventcal = (props) => {
   const roommap = useSelector(state => state.other.rooms);
   const success = useSelector(state => state.other.success);
   const errors = useSelector(state => state.other.errors);
+
   const GreenCheckbox = withStyles({
     root: { color: red[400], '&$checked': { color: blue[600] } }, checked: {}
   })((props) => <Checkbox color="default" {...props} />);
@@ -37,7 +37,7 @@ export const Eventcal = (props) => {
   const [state, setState] = React.useState({
     event_name: '',
     room_name: '',
-    person_name: isAuth.currentUser.personName,
+    person_login: isAuth.currentUser.loginName,
     event_start: moment().format('YYYY-MM-DD 08:00'),
     event_end: moment().format('YYYY-MM-DD 21:00'),
     checkedAll: false,
@@ -131,7 +131,7 @@ export const Eventcal = (props) => {
                                 </InputAdornment >
                               )
                             }}
-                            id="outlined-select-currency-native" name="person_name" variant="outlined" label="Person" value={isAuth.currentUser.personName} />
+                            id="outlined-select-currency-native" name="person_login" variant="outlined" label="Person" value={isAuth.currentUser.loginName} />
                         </div>
                       <div className="time-event-block">
                         {!state.checkedAll && <MuiPickersUtilsProvider locale='ru' utils={MomentUtils}>

@@ -16,7 +16,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 
 export const Roomcreate = (props) => {
     const dispatch = useDispatch()
-    const closeModal = e => { if (modalRef.current === e.target) { props.close(); } };
+    const closeModal = e => { if (modalRef.current === e.target) { setState({ ...state, room_name: '', room_number: '', building_number: '',capacity:'',description:'', nofill: false }); props.close();} };
 
     const success = useSelector(state => state.other.success);
     const errors = useSelector(state => state.other.errors);
@@ -30,7 +30,7 @@ export const Roomcreate = (props) => {
         nofill: false
     });
     const createEvent = () => {
-        if (state.room_name !== '' && state.room_number !== '' && state.building_number !== '') {
+        if (state.room_name !== '' && state.room_number !== '' && state.building_number !== '' && state.capacity !=='') {
             dispatch(addroom(state));
             setState({ ...state, room_name: '', room_number: '', building_number: '',capacity:'',description:'', nofill: false });
         } else {

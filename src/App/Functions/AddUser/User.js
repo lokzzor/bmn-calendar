@@ -9,9 +9,10 @@ import Alert from '@material-ui/lab/Alert';
 
 import CloseIcon from '@material-ui/icons/Close';
 import MenuIcon from '@material-ui/icons/Menu';
-import LockIcon from '@material-ui/icons/Lock';
 import EmailIcon from '@material-ui/icons/Email';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 export const Adnewuser = (props) => {
     const dispatch = useDispatch()
@@ -33,10 +34,13 @@ export const Adnewuser = (props) => {
         is_active: true,
         error: '',
         nofill: false,
-        nofill2: false
+        nofill2: false,
+        showPassword: false,
     });
     const handleChecked = (event) => { setState({ ...state, [event.target.name]: event.target.checked }); };
-
+    const handleClickShowPassword = () => {
+        setState({ ...state, showPassword: !state.showPassword });
+      };
     const createEvent = () => {
         if (state.login_name !== '' && state.login_pass !== '' && state.login_passagain !== '' && state.person_name !== '' && state.email !== '') {
             if (state.login_pass !== '' && state.login_passagain !== '' && state.login_pass === state.login_passagain) {
@@ -81,24 +85,50 @@ export const Adnewuser = (props) => {
                                         <div className="user-size">
                                             <div className="user-size-add">
                                                 <div className="form-room-left">
-                                                    <TextField className="border" style={{ width: "14em" }}
+                                                <TextField
+                                                        className="border" style={{ width: "14em" }}
+                                                        variant="outlined"
+                                                        type={state.showPassword ? 'text' : 'password'}
+                                                        label="Password"
+                                                        name="login_pass"
+                                                        value={state.login_pass}
+                                                        onChange={(event) => setState({ ...state, login_pass: event.target.value })}
                                                         InputProps={{
-                                                            endAdornment: (
-                                                                <InputAdornment position="start" style={{ cursor: "default" }}>
-                                                                    <LockIcon />
-                                                                </InputAdornment >
-                                                            )
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                            <IconButton
+                                                                edge="end"
+                                                                aria-label="toggle password visibility"
+                                                                onClick={handleClickShowPassword}
+                                                            >
+                                                                {state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                            </InputAdornment>
+                                                        ),
                                                         }}
-                                                        value={state.login_pass} name="login_pass" onChange={(event) => setState({ ...state, login_pass: event.target.value })} id="outlined-select-currency-native" variant="outlined" label="Password" />
-                                                    <TextField className="border" style={{ width: "14em" }}
+                                                    />                                                    
+                                                    <TextField
+                                                        className="border" style={{ width: "14em" }}
+                                                        variant="outlined"
+                                                        type={state.showPassword ? 'text' : 'password'}
+                                                        label="Conform Password"
+                                                        name="login_passagain"
+                                                        value={state.login_passagain}
+                                                        onChange={(event) => setState({ ...state, login_passagain: event.target.value })}
                                                         InputProps={{
-                                                            endAdornment: (
-                                                                <InputAdornment position="start" style={{ cursor: "default" }}>
-                                                                    <LockIcon />
-                                                                </InputAdornment >
-                                                            )
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                            <IconButton
+                                                                edge="end"
+                                                                aria-label="toggle password visibility"
+                                                                onClick={handleClickShowPassword}
+                                                            >
+                                                                {state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                            </InputAdornment>
+                                                        ),
                                                         }}
-                                                        value={state.login_passagain} name="login_passagain" onChange={(event) => setState({ ...state, login_passagain: event.target.value })} id="outlined-select-currency-native" variant="outlined" label="Conform Password" />
+                                                    />
                                                 </div>
                                                 <div className="form-room-rigth">
                                                     <TextField className="border" style={{ width: "14em" }}
@@ -109,7 +139,7 @@ export const Adnewuser = (props) => {
                                                                 </InputAdornment >
                                                             )
                                                         }}
-                                                        value={state.email} name="email" onChange={(event) => setState({ ...state, email: event.target.value })} id="outlined-select-currency-native" variant="outlined" label="Email" />
+                                                        value={state.email} name="email" onChange={(event) => setState({ ...state, email: event.target.value })}  variant="outlined" label="Email" />
                                                     <TextField className="border" style={{ width: "14em" }}
                                                         InputProps={{
                                                             endAdornment: (
@@ -118,7 +148,7 @@ export const Adnewuser = (props) => {
                                                                 </InputAdornment >
                                                             )
                                                         }}
-                                                        value={state.person_name} name="person_name" onChange={(event) => setState({ ...state, person_name: event.target.value })} id="outlined-select-currency-native" variant="outlined" label="Person Name" />
+                                                        value={state.person_name} name="person_name" onChange={(event) => setState({ ...state, person_name: event.target.value })}  variant="outlined" label="Person Name" />
                                                 </div>
                                             </div>
                                             <div className="checkbox-user">

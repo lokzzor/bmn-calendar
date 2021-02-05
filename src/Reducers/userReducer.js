@@ -1,7 +1,7 @@
 import{ LOGOUT, SET_USER, LOGIN_FAIL, REGISTER_FAIL, AUTH_ERROR} from '../Constants/Constants';
 
 const defaultState = {
-    currentUser: { personName:'guest' },
+    currentUser: { loginName:'Guest' },
     isAuth: false,
     errors: {}
 }
