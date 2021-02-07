@@ -117,3 +117,93 @@
   border-radius: 0.8em;
 }
 
+/* EVENt */
+.home-itemevent{
+  background-color: white;
+  width: 20em;
+  font-family: "Ubuntu", sans-serif;
+  margin: -3em auto 0em auto;
+  position: absolute;
+  left: 9%;
+  top: 2%;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  border-radius: 0.6em;
+}
+.home-itemevent_header2{
+  display: flex;
+  position: relative;
+  min-height: 12px;
+  padding-top: 23px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+.home-itemevent_content{
+  padding: 0% 4% 4% 5%;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+.home-itemevent_title{
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  color: #000;
+}
+.home-itemevent_time{
+  display: flex;
+  align-items: center;
+  cursor: default;
+  font-size: 16px;  color: #000;
+
+}
+.home-itemevent_author{
+  display: flex;
+  align-items: center;
+  cursor: default;
+  font-size: 15px;  color: #000;
+
+}
+.home-itemevent_room{
+  display: flex;
+  align-items: center;
+  cursor: default;
+  font-size: 15px;  color: #000;
+
+}
+.home-itemevent_title_name{
+  color: rgba(0, 0, 0, 0.54);
+  overflow: hidden;
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  letter-spacing: 0.0075em;
+  line-height: 1.4;
+  cursor: default;
+}
+.home-itemevent_title_date{
+  display: inline-block;
+  cursor: default;
+  color:#0000ffa6;
+}
+.home-svgmain{
+  width: 46px !important;
+  font-size: 30px !important;
+  color: black;
+}
+.home-svgall{
+  width: 46px !important;
+  font-size: 25px !important;
+  color: black;
+}
+.home-padevent{
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 5px 0;
+}

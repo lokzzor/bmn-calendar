@@ -102,7 +102,7 @@ export default class Calendar extends React.PureComponent {
           <Resources data={resources} allowMultiple={true}  />
         </Scheduler>
         {/*  <Eventcal close={this.openModal} showModal={showModal} setShowModal={setShowModal} />
-         */}<Fab color="secondary" className="MuiFabbut" > <AddIcon onClick={this.openModal} /> </Fab>
+         <Fab color="secondary" className="MuiFabbut" > <AddIcon onClick={this.openModal} /> </Fab>*/}
        </Paper>
     );
   }

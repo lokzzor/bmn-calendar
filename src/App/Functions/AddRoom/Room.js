@@ -63,7 +63,7 @@ export const Roomcreate = (props) => {
                                                 <InputBase className="maintitle" placeholder="Room Name" value={state.room_name} autoFocus={true} name="room_name" onChange={(event) => setState({ ...state, room_name: event.target.value, nofill: false })} />
                                             </div>
                                             <div className="add-room-content-form-name2">
-                                                <ListItem onClick={createEvent} className="btn btn-primary" button> <p style={{ fontWeight: "bold" }}> <>Save</>{" "}</p></ListItem>
+                                                <ListItem onClick={createEvent} className="btn btn-primary" button> <p style={{ fontWeight: "bold" }}> <>Add</>{" "}</p></ListItem>
                                             </div>
                                         </div>
                                         <div className="room-side">

@@ -79,7 +79,7 @@ export const Adnewuser = (props) => {
                                                 <InputBase className="maintitle" placeholder="Login" autoFocus={true} name="login_name" value={state.login_name} onChange={(event) => setState({ ...state, login_name: event.target.value, nofill: false })} />
                                             </div>
                                             <div className="add-person-content-form-name2">
-                                                <ListItem onClick={createEvent} className="btn btn-primary" button> <p style={{ fontWeight: "bold" }}> <>Save</>{" "}</p></ListItem>
+                                                <ListItem onClick={createEvent} className="btn btn-primary" button> <p style={{ fontWeight: "bold" }}> <>Create</>{" "}</p></ListItem>
                                             </div>
                                         </div>
                                         <div className="user-size">

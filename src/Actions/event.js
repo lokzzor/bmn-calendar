@@ -1,4 +1,6 @@
 import { eventlist_no_active, eventlist_old } from "../Reducers/eventReducer";
+import { successAddEvent, eventFail } from "../Reducers/otherReducer";
+
 import API from '../Reducers/API';
 
 export const EventListNoActive = () => {
@@ -37,6 +39,34 @@ export const EventListOld = () => {
             dispatch(eventlist_old(response.data))
         } catch (e) {
             console.log(e)
+        }
+    }
+}
+export const operationRemove = (state) => {
+    return async dispatch => {
+        try {
+            await API.post('api/get/event_remove', { state });
+            dispatch(successAddEvent('Success'))
+            setTimeout(function () { dispatch(successAddEvent('')) }, 111500)
+            //dispatch(setUser(response.data.user))
+        } catch (error) {
+            dispatch(eventFail(error.response.data.message));
+            setTimeout(function () { dispatch(eventFail('')) }, 2500)
+            //console.log(error.response.data.message)
+        }
+    }
+}
+export const operationOk = (state) => {
+    return async dispatch => {
+        try {
+            await API.post('api/get/event_ok', { state });
+            dispatch(successAddEvent('Success'))
+            setTimeout(function () { dispatch(successAddEvent('')) }, 2500)
+            //dispatch(setUser(response.data.user))
+        } catch (error) {
+            dispatch(eventFail(error.response.data.message));
+            setTimeout(function () { dispatch(eventFail('')) }, 2500)
+            //console.log(error.response.data.message)
         }
     }
 }
