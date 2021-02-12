@@ -34,21 +34,21 @@ const Weather = () => {
   React.useEffect(() => { dispatch(weatherobj()); 
   }, [dispatch])
   
-  React.useEffect(
+/*   React.useEffect(
     () => {
       console.log("effect");
     },
     [weather]
-  );
+  ); */
   React.useEffect(() => { 
     setInterval(() => setTime(moment().format("MMMM Do YYYY | HH:mm")), 1000)
   }, [])
 
-  React.useEffect(() => {
+/*   React.useEffect(() => {
     return () => {
       console.log("cleaned up");
     };
-  }, []);
+  }, []); */
   return (
     <>
       <div className="flex-2side" style={{backgroundImage: "url(" + background+ ")", backgroundSize: "cover"}}>

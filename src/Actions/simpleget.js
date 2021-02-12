@@ -26,7 +26,7 @@ export const sCalendarSelect = () => {
     return async dispatch => {
         try {
             const response = await API.get('/api/get/scalendarselect');
-            dispatch(selectscalendar(response.data))
+            dispatch(selectscalendar(response.data.reverse()))
         } catch (e) {
             console.log(e)
         }

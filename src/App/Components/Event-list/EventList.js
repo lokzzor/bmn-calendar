@@ -24,11 +24,12 @@ const Eventlist = (props) => {
   const success = useSelector(state => state.other.success);
   const errors = useSelector(state => state.other.errors);
   const eventnoactual = useSelector(state => state.event.eventlist_active);
-  const eventold = useSelector(state => state.event.eventlist_old);
+  //const eventold = useSelector(state => state.event.eventlist_old);
 
+
+/*   React.useEffect(() => { dispatch(EventListOld()); 
+  }, [dispatch]) */
   React.useEffect(() => { dispatch(EventListNoActive()); 
-  }, [dispatch])
-  React.useEffect(() => { dispatch(EventListOld()); 
   }, [dispatch])
 
   const [state, setState] = React.useState({
@@ -45,7 +46,14 @@ const Eventlist = (props) => {
     console.log(n)
     n.user=user;
     dispatch(operationOk(n));
+    HookUpdate();
   }
+
+  const HookUpdate = () => {
+    React.useEffect(() => { dispatch(EventListNoActive()); 
+    }, [dispatch])
+  }
+
   return (
     <>
       {errors.length > 0 && <Alert className="alert-list-event" variant="filled" severity="error">{errors}</Alert>}
@@ -110,7 +118,7 @@ const Eventlist = (props) => {
             </div>
           )}) }        
       </div>
-      <div className="eventlist-old">
+{/*       <div className="eventlist-old">
       { eventold.length === 0 
           ? <div key='1' className="nodata">
               No data
@@ -152,7 +160,7 @@ const Eventlist = (props) => {
               </div>
             </div>
           )}) }
-      </div>
+      </div> */}
       <div className="top">
         <a href="#up">
           <ExpandLessIcon onClick={scrollTop.bind(this)} className="icon-top" />

@@ -18,7 +18,6 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 const Smcalendar = () => {
     const dispatch = useDispatch();
     const selectscall = useSelector(state => state.other.selectscall);
-    console.log(selectscall)
     React.useEffect(() => { dispatch(sCalendarSelect()); 
     }, [dispatch])
 

@@ -47,7 +47,7 @@ export const operationRemove = (state) => {
         try {
             await API.post('api/get/event_remove', { state });
             dispatch(successAddEvent('Success'))
-            setTimeout(function () { dispatch(successAddEvent('')) }, 111500)
+            setTimeout(function () { dispatch(successAddEvent('')) }, 2500)
             //dispatch(setUser(response.data.user))
         } catch (error) {
             dispatch(eventFail(error.response.data.message));
