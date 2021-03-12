@@ -187,7 +187,19 @@
   .add-event-event-info{
     display: flex;
     justify-content: space-between;
-    padding: 0.5% 0 0.5% 2%;
+    padding: 0.5% 2% 0.5% 2%;
+    font-size: 1.16rem;
+    color: #007bff;
+    cursor: default;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+  }
+  .add-event-event-repeat{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5% 11% 0.5% 11%;
     font-size: 1.16rem;
     color: #007bff;
     cursor: default;
@@ -265,4 +277,31 @@
 /*     display: flex;    
     flex-direction: column;
     width: 50%; */
+  }
+  /* repeate */
+  .repeatsection{
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 2%;
+  }
+  .fitstsectionrep{
+    margin: 0 auto;
+  }
+  .secondsectionrep{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 16rem;
+  }
+  .secondsectionrep1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .secondsectionrep2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

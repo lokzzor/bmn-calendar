@@ -6,7 +6,6 @@ import ListItem from "@material-ui/core/ListItem";
 import { Eventcal } from "../../Functions/AddEvent/AddEvent"
 import { sCalendarSelect } from '../../../Actions/simpleget'
 import { useDispatch, useSelector } from 'react-redux';
-import { IconButton } from '@material-ui/core/';
 
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import RoomIcon from '@material-ui/icons/Room';
@@ -38,14 +37,14 @@ const Smcalendar = () => {
                     <div className="home-itemevent_header2"></div>
                     <div className="home-itemevent_content">
                     <div className="home-itemevent_title">
-                        <EventNoteIcon className="home-svgmain" />
+                        <EventNoteIcon className="home-svgmain home-svgall-title-icon" />
                         <div> 
                             <div className="home-itemevent_title_name">{window.event_name}</div> 
                             <div className="home-padevent home-itemevent_title_date">{moment(window.event_start).format('dddd, D MMMM YYYY')}</div>
                         </div>
                     </div>
                     <div className="home-itemevent_time">
-                        <svg className="home-svgall MuiSvgIcon-root makeStyles-icon-1676" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
+                        <svg className="home-svgall-time-icon home-svgall MuiSvgIcon-root makeStyles-icon-1676" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
                         <div className="home-padevent">
                         {moment(window.event_start).format('HH:mm')}
                         <span> - </span>
@@ -53,11 +52,11 @@ const Smcalendar = () => {
                         </div>
                     </div>
                     <div className="home-itemevent_author">
-                        <HowToRegIcon className="home-svgall" />
+                        <HowToRegIcon className="home-svgall home-svgall-author-icon" />
                         <div className="home-padevent">{window.person_login}</div>
                     </div>
                     <div className="home-itemevent_room">
-                        <RoomIcon className="home-svgall" />
+                        <RoomIcon className="home-svgall home-svgall-room-icon" />
                         <div className="home-padevent">{window.room_name}</div>
                     </div>
                 </div>
@@ -72,7 +71,7 @@ const Smcalendar = () => {
                     <ol className="color-with-svg">
                         { selectscall.length === 0 
                         ? <li className="listli"  key='1'><DonutLargeIcon className="colorcircle"/><span className="small-calendar-titleevent">There are no scheduled events today</span></li> 
-                        : selectscall.slice(0, 3).map(n => { return <li className="listli" key={n.event_id} ><DonutLargeIcon className="colorcircle"/><span onMouseEnter={onMouseEnterHandler.bind(this, n)} onMouseLeave={onMouseLeaveHandler.bind(this, n)} className="small-calendar-titleevent">{n.event_name}</span></li> })}
+                        : selectscall.slice(0, 2).map(n => { return <li className="listli" key={n.event_id} ><DonutLargeIcon className="colorcircle"/><span onMouseEnter={onMouseEnterHandler.bind(this, n)} onMouseLeave={onMouseLeaveHandler.bind(this, n)} className="small-calendar-titleevent">{n.event_name}</span></li> })}
                    </ol>
                 </div>
                 <div className="small-calendar-eventadd">

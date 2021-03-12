@@ -51,15 +51,17 @@
 }
 .dictinary_section_content{
 position: relative; display: grid; grid-gap: 2em;   align-items: center;
-grid-template-columns: repeat(/* auto-fill */3,minmax(11em,1fr)); 
+grid-template-columns: repeat(/* auto-fill */2,minmax(13em,0fr));
 width: 54%;
 margin: 1.5em auto;
+justify-content: center;
 }
 .dictinary_section_content2{
     position: relative; display: grid; grid-gap: 2em; grid-template-columns: repeat(/* auto-fill */4,minmax(11em,1fr)); 
     width: 72.7%;
     margin: 1.5em auto;
     padding: 1.5% 0 2% 0;
+    justify-content: center;
     }
 
 /* Person */

@@ -1,4 +1,4 @@
-import { eventlist_no_active, eventlist_old } from "../Reducers/eventReducer";
+import { eventlist_no_active, eventlist_old, eventlist_search } from "../Reducers/eventReducer";
 import { successAddEvent, eventFail } from "../Reducers/otherReducer";
 
 import API from '../Reducers/API';
@@ -37,6 +37,25 @@ export const EventListOld = () => {
                 conform:n.admin_login
               }) );
             dispatch(eventlist_old(response.data))
+        } catch (e) {
+            console.log(e)
+        }
+    }
+}
+export const EventListSearch = (state) => {
+    return async dispatch => {
+        try {
+            const response = await API.post('/api/get/calendar_event_search', { state });
+            response.data=response.data.map(n => ({
+                eventid:n.event_id,
+                title: n.event_name,
+                startDate:n.event_start,
+                endDate:n.event_end,
+                location:"Room - "+ n.room_name,
+                person:"Author - "+n.person_login,
+                conform:n.admin_login
+              }) );
+            dispatch(eventlist_search(response.data))
         } catch (e) {
             console.log(e)
         }

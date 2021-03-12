@@ -33,7 +33,7 @@ const Firstchart = () => {
         textStyle: {
           color: "white",
           fontFamily: "Ubuntu",
-          fontSize: 17,
+          fontSize: 16.7,
           padding: [3, 3, 3, 3],
           fontStyle: "normal",
           fontWeight: "bold",
@@ -41,7 +41,7 @@ const Firstchart = () => {
       },
       series: [
         {
-          name: "Series Name",
+          name: "Create Room",
           type: "pie",
           animationDuration: 3000,
           animationEasing: "quarticInOut",
@@ -55,13 +55,8 @@ const Firstchart = () => {
           selectedMode: "multiple",
           label: {
             paddingTop:'120px',
-            normal: {
-              show: false,
-            },
-            emphasis: {
-              show: false,
-            },
-          },
+            show: false,
+          },//tut
           data: chart.map( ({name, value}) => ({ name, value }) ),
         },
       ],

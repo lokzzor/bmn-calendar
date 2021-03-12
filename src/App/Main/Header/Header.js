@@ -23,7 +23,7 @@ import {useDispatch, useSelector} from 'react-redux';
             <>
             <div className="header-bar">
                 <Link to='/' className="header-bar-title">
-                    <EventNoteIcon />&nbsp;<p>BM@N Calendar</p>
+                    <EventNoteIcon />&nbsp;<p>Meeting Calendar</p>
                 </Link>
                 <div className="header-bar-menu">
                     <div>

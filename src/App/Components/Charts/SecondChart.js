@@ -26,7 +26,7 @@ const Secondchart = () => {
       textStyle: {
         color: "white",
         fontFamily: "Ubuntu",
-        fontSize: 17,
+        fontSize: 16.7,
         padding: [3, 3, 3, 3],
         fontStyle: "normal",
         fontWeight: "bold",
@@ -34,7 +34,7 @@ const Secondchart = () => {
     },
     series: [
       {
-        name: "Series Name",
+        name: "Сreated Events in the room",
         type: "pie",
         animationDuration: 3000,
         animationEasing: "quarticInOut",
@@ -47,12 +47,7 @@ const Secondchart = () => {
         roseType: "area",
         selectedMode: "multiple",
         label: {
-          normal: {
-            show: false,
-          },
-          emphasis: {
-            show: false,
-          },
+          show: false,
         },
         data: chart.map( ({name, value}) => ({ name, value }) ),
       },

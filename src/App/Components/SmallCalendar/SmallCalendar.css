@@ -190,7 +190,8 @@
 .home-itemevent_title_date{
   display: inline-block;
   cursor: default;
-  color:#0000ffa6;
+  color: #8484a9;
+  padding: 2px 0 !important;
 }
 .home-svgmain{
   width: 46px !important;
@@ -206,4 +207,18 @@
   margin-top: auto;
   margin-bottom: auto;
   padding: 5px 0;
+}
+
+/* Icon  tooltip */
+.home-svgall-title-icon{
+  color: #ca300b;
+}
+.home-svgall-time-icon{
+  color: #008000;
+}
+.home-svgall-author-icon{
+  color: #3e86ff;
+}
+.home-svgall-room-icon{
+  color: #ff8a00;
 }

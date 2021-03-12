@@ -6,6 +6,7 @@
     grid-template-columns: 22% 1fr 1.5fr;
     grid-auto-rows: minmax(360px, auto);
     grid-gap: 2em;
+    justify-content: center;
 }
 
 .home-main-container-calendar{
@@ -22,6 +23,7 @@
     grid-template-columns: 22% 1fr 1fr;
     grid-auto-rows: minmax(360px, auto);
     grid-gap: 2em;
+    justify-content: center;
 }
 
 .scrol-icon-top{
