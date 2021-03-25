@@ -14,3 +14,53 @@
     bottom: 220px;
     z-index: 2;
 } 
+.hedcalenar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    width: 100%;
+    z-index: 5;
+    background-color: rgb(0, 101, 179);
+    color: white;
+    font-size: 0.9rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.classpapper{
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    position: relative !important;
+    height: auto !important;
+}
+.newbut{
+    width: max-content;
+    height: 2.7rem !important;
+    padding: 0 0.6em !important;
+}
+.Root-container-2 {
+    height: auto !important;
+}
+.Root-container-1 {
+    height: auto !important;
+}
+.Root-container-360 {
+    height: auto !important;
+}
+
+.fab{
+    margin-top: -20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+    position: sticky;
+    bottom: 0;
+    right: 15px;
+}
+.fab > button{
+    background-color: red;
+}
+.test{
+    height: auto !important;
+}

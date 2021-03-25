@@ -1,7 +1,7 @@
 import{ LOGOUT, SET_USER, LOGIN_FAIL, REGISTER_FAIL, AUTH_ERROR} from '../Constants/Constants';
 
 const defaultState = {
-    currentUser: { loginName:'Guest' },
+    currentUser: { loginName:'Guest',personName:'Guest' },
     isAuth: false,
     errors: {}
 }
@@ -28,7 +28,7 @@ export default function userReducer(state = defaultState, action) {
             localStorage.removeItem('token')
             return {
                 ...state,
-                currentUser: { loginName:'Guest' },
+                currentUser: { loginName:'Guest',personName:'Guest' },
                 isAuth: false
             }
         default:

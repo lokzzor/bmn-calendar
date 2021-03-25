@@ -15,7 +15,8 @@ import {logout} from '../../../Reducers/userReducer'
 import {useDispatch, useSelector} from 'react-redux';
 
     const AppHeader = () => {
-        const isAuth = useSelector(state => state.user.isAuth);
+        const isAuth = useSelector(state => state.user);
+
         const count = useSelector(state => state.other.countnewevent);
         const dispatch = useDispatch();            
         React.useEffect(() => { dispatch(getCalendarNewEvent()) }, [dispatch])
@@ -29,30 +30,30 @@ import {useDispatch, useSelector} from 'react-redux';
                     <div>
                         <Link className="header-link" to="/">
                         <IconButton color="inherit"> <HomeIcon className="navicons header-bar-menu-icon"/></IconButton>
-                        Home</Link>
+                        <span className="nonemenu">Home</span></Link>
                     </div>
                     <div>
                         <Link className="header-link" to="/event-list">
                         <div className="header-event-block"><mark className="header-event-big header-event-swing">{count}</mark></div>
                         <IconButton color="inherit"> <EventAvailableIcon className="navicons header-bar-menu-icon" /> </IconButton>
-                        Event</Link>
+                        <span className="nonemenu">Event</span></Link>
                     </div>
-                    { isAuth && <div>
+                    { isAuth.currentUser.isAdmin && <div className="nonemenu2">
                         <Link className="header-link" to="/dictionary">
                         <IconButton color="inherit">
                             <SettingsApplicationsIcon className="navicons header-bar-menu-icon" />
                         </IconButton>
-                        Dictionary</Link>
+                        <span className="nonemenu">Dictionary</span></Link>
                     </div>}
-                    { !isAuth && <div>
+                    { !isAuth.isAuth && <div>
                         <Link className="header-link" to="/account">
                         <IconButton color="inherit"> <TouchAppIcon className="navicons header-bar-menu-icon" /> </IconButton>
-                        Sing In</Link>
+                        <span className="nonemenu">Sing In</span></Link>
                     </div>}
-                    { isAuth && <div  onClick={() => { dispatch(logout()) }}>
+                    { isAuth.isAuth && <div  onClick={() => { dispatch(logout()) }}>
                     <Link className="header-link" to="/"  >
                         <IconButton color="inherit"><MeetingRoomIcon className="navicons header-bar-menu-icon" /></IconButton>
-                       Log Out</Link>
+                        <span className="nonemenu">Log Out</span></Link>
                     </div>}
                 </div>
             </div>

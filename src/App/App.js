@@ -11,7 +11,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {auth} from "../Actions/user"
 
 function App() {
-  const isAuth = useSelector(state => state.user.isAuth)
+  const isAuth = useSelector(state => state.user)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,8 +26,8 @@ function App() {
       <Switch>
         <Route path='/' exact component={Home}/>
         <Route path="/event-list" component={Eventlist}   /> 
-        {  isAuth && <Route path="/dictionary" component={Dictionary} /> } 
-        { !isAuth && <Route path="/account" component={AppLogin}      /> }
+        {  isAuth.currentUser.isAdmin && <Route path="/dictionary" component={Dictionary} /> } 
+        { !isAuth.isAuth && <Route path="/account" component={AppLogin}      /> }
         <Redirect to="/" />
       </Switch>
     </Router>

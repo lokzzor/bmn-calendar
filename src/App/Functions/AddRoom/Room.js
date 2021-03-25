@@ -13,6 +13,7 @@ import DomainIcon from '@material-ui/icons/Domain';
 import MenuIcon from '@material-ui/icons/Menu';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import DescriptionIcon from '@material-ui/icons/Description';
+import second from "../../Components/Weather/img/second.jpg";
 
 export const Roomcreate = (props) => {
     const dispatch = useDispatch()
@@ -106,7 +107,7 @@ export const Roomcreate = (props) => {
                                                     value={state.description}  name="description" onChange={(event) => setState({ ...state, description: event.target.value })}  id="outlined-select-currency-native" variant="outlined" label="Description" />
                                             </div>
                                             <div className="room-right-side">
-                                                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4eacb444836431.582047bcb4aa6.jpg" style={{ objectFit: "fill", width: "100%" }} alt=""></img>
+                                                <img src={second} style={{ objectFit: "fill", width: "100%" }} alt=""></img>
                                             </div>
                                         </div>
                                     </form>

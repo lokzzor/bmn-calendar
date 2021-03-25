@@ -72,6 +72,7 @@ const Eventlist = (props) => {
     setTimeout( function() { dispatch(EventListNoActive()); }, 1000 );
   }
 
+  
   return (
     <>
       {errors.length > 0 && <Alert className="alert-list-event" variant="filled" severity="error">{errors}</Alert>}

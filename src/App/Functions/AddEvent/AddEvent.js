@@ -35,9 +35,6 @@ export const Eventcal = (props) => {
     { value: 'Week', label: 'Week'},
   ];
 
-  React.useEffect(() => {
-    dispatch(getRoomsMap());
-  }, [dispatch])
   const modalRef = useRef();
 
   const [state, setState] = React.useState({
@@ -54,9 +51,15 @@ export const Eventcal = (props) => {
     repeatattime:'Day',
     checkedfinish:true,
     checkedfinish2:false,
-    finishday: moment().format('YYYY-MM-DD'),
+    finishday: moment().add(1, 'day').format('YYYY-MM-DD'),
     finishafter:10
   });
+  React.useEffect(() => { 
+    setState({person_login:isAuth.currentUser.loginName, event_name: '', room_name: '', event_start: moment().format('YYYY-MM-DD 08:00'), event_end: moment().format('YYYY-MM-DD 21:00'), checkedAll: false, checkedRepeat: false, error: '', nofill:false, repeatatintervals:1, repeatattime:'Day', checkedfinish:true, checkedfinish2:false, finishday: moment().add(1, 'day').format('YYYY-MM-DD'), finishafter:10 });   
+  }, [isAuth]);
+  React.useEffect(() => {
+    dispatch(getRoomsMap());
+  }, [dispatch])
 
   const handleChecked = (event) => { setState({ ...state, [event.target.name]: event.target.checked }); };
 
@@ -96,7 +99,7 @@ export const Eventcal = (props) => {
                     <div className="add-event-content-form-name">
                       <div className="add-event-content-form-name1">
                         <IconButton aria-label="menu"> <MenuIcon /> </IconButton>
-                        <InputBase className="add-event-maintitle" placeholder="Event Name" value={state.event_name} autoFocus={true} name="event_name" onChange={(event) => setState({ ...state, event_name: event.target.value, nofill:false })} />
+                        <InputBase className="add-event-maintitle" placeholder="Event Name" value={state.event_name || ""} autoFocus={true} name="event_name" onChange={(event) => setState({ ...state, event_name: event.target.value, nofill:false })} />
                       </div>
                       <div className="add-event-content-form-name2">
                         <ListItem onClick={createEvent} className="btn btn-primary" button>
@@ -109,7 +112,7 @@ export const Eventcal = (props) => {
                         control={<GreenCheckbox checked={state.checkedAll} onChange={handleChecked} name="checkedAll" />}
                         label="All working day"
                       />
-                      {isAuth.isAuth===true && <FormControlLabel
+                      <FormControlLabel
                         control={
                           <GreenCheckbox
                             checked={state.checkedRepeat}
@@ -119,7 +122,7 @@ export const Eventcal = (props) => {
                           />
                         }
                         label="Repeat"
-                      />}
+                      />
                     </div>
                     <div className="add-event-event-info">
                       Event Details
@@ -131,7 +134,7 @@ export const Eventcal = (props) => {
                           style={{width: "12rem",textAlign: "left"}}
                           id="outlined-select-currency-native"
                           select
-                          value={state.room_name}
+                          value={state.room_name  || ""}
                           onChange={(event) => setState({ ...state, room_name: event.target.value,nofill:false })}
                           name="room_name"
                           variant="outlined"
@@ -183,29 +186,29 @@ export const Eventcal = (props) => {
                           />
                         </MuiPickersUtilsProvider>}
                         {state.checkedAll && <MuiPickersUtilsProvider utils={MomentUtils}>
-                          <KeyboardDateTimePicker className="border"
-                            style={{width: "13rem"}}
+                          <KeyboardDatePicker className="border"
+                            style={{width: "11rem"}}
                             inputVariant="outlined"
                             ampm={false}
                             label="From"
-                            disabled
                             value={state.event_start}
+                            onChange={(event) => setState({ ...state, event_start: event })}
                             inputProps={{ style: { fontSize: "0.95rem" } }}
                             disablePast
-                            format="YYYY/MM/DD H:mm"
+                            format="YYYY/MM/DD"
                             InputLabelProps={{
                               shrink: true,
                             }}
                           />
-                          <KeyboardDateTimePicker className="border" style={{width: "13rem",margin: "1.5em 0px"}}
+                          <KeyboardDatePicker className="border" style={{width: "11rem",margin: "1.5em 0px"}}
                             inputVariant="outlined"
                             ampm={false}
                             label="To"
-                            disabled
                             value={state.event_end}
+                            onChange={(event) => setState({ ...state, event_end: event })}
                             inputProps={{ style: { fontSize: "0.95rem" } }}
                             disablePast
-                            format="YYYY/MM/DD H:mm"
+                            format="YYYY/MM/DD"
                             InputLabelProps={{
                               shrink: true,
                             }}
@@ -227,7 +230,7 @@ export const Eventcal = (props) => {
                             label="Number"
                             type="number"
                             name="repeatatintervals"
-                            inputProps={{ min: 1}}
+                            inputProps={{ min: 1,max:30}}
                             InputLabelProps={{
                               shrink: true,
                             }}

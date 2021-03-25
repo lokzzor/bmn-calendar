@@ -14,6 +14,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
+import first from "../../Components/Weather/img/first.jpg";
+
 export const Adnewuser = (props) => {
     const dispatch = useDispatch()
     const closeModal = e => { if (modalRef.current === e.target) { props.close(); } };
@@ -82,7 +84,7 @@ export const Adnewuser = (props) => {
                                                 <ListItem onClick={createEvent} className="btn btn-primary" button> <p style={{ fontWeight: "bold" }}> <>Create</>{" "}</p></ListItem>
                                             </div>
                                         </div>
-                                        <div className="user-size">
+                                        <div className="user-size" style={{background: "url(" + first+ ") center"}}>
                                             <div className="user-size-add">
                                                 <div className="form-room-left">
                                                 <TextField
