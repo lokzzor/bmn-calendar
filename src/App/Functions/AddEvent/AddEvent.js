@@ -163,7 +163,7 @@ export const Eventcal = (props) => {
                             ampm={false}
                             label="From"
                             value={state.event_start}
-                            inputProps={{ style: { fontSize: "0.95rem" } }}
+                            inputprops={{ style: { fontSize: "0.95rem" } }}
                             onChange={(event) => setState({ ...state, event_start: event })}
                             disablePast
                             format="YYYY/MM/DD H:mm"
@@ -176,11 +176,11 @@ export const Eventcal = (props) => {
                             ampm={false}
                             label="To"
                             value={state.event_end}
-                            inputProps={{ style: { fontSize: "0.95rem" } }}
+                            inputprops={{ style: { fontSize: "0.95rem" } }}
                             onChange={(event) => setState({ ...state, event_end: event })}
                             disablePast
                             format="YYYY/MM/DD H:mm"
-                            InputLabelProps={{
+                            inputlabelprops={{
                               shrink: true,
                             }}
                           />
@@ -193,10 +193,10 @@ export const Eventcal = (props) => {
                             label="From"
                             value={state.event_start}
                             onChange={(event) => setState({ ...state, event_start: event })}
-                            inputProps={{ style: { fontSize: "0.95rem" } }}
+                            inputprops={{ style: { fontSize: "0.95rem" } }}
                             disablePast
                             format="YYYY/MM/DD"
-                            InputLabelProps={{
+                            inputlabelprops={{
                               shrink: true,
                             }}
                           />
@@ -206,10 +206,10 @@ export const Eventcal = (props) => {
                             label="To"
                             value={state.event_end}
                             onChange={(event) => setState({ ...state, event_end: event })}
-                            inputProps={{ style: { fontSize: "0.95rem" } }}
+                            inputprops={{ style: { fontSize: "0.95rem" } }}
                             disablePast
                             format="YYYY/MM/DD"
-                            InputLabelProps={{
+                            inputlabelprops={{
                               shrink: true,
                             }}
                           />
@@ -226,12 +226,12 @@ export const Eventcal = (props) => {
                           <TextField
                             className="border"
                             style={{ width: "5rem",marginTop: "1.5em" }}
-                            id="outlined-number"
+                            id="outlined-number3"
                             label="Number"
                             type="number"
                             name="repeatatintervals"
-                            inputProps={{ min: 1,max:30}}
-                            InputLabelProps={{
+                            inputprops={{ min: 1,max:30}}
+                            inputlabelprops={{
                               shrink: true,
                             }}
                             variant="outlined"
@@ -272,10 +272,10 @@ export const Eventcal = (props) => {
                                     disabled
                                     label="Date"
                                     value={state.finishday}
-                                    inputProps={{ style: { fontSize: "0.95rem" } }}
+                                    inputprops={{ style: { fontSize: "0.95rem" } }}
                                     disablePast
                                     format="YYYY/MM/DD"
-                                    InputLabelProps={{
+                                    inputlabelprops={{
                                       shrink: true,
                                     }}
                                   />
@@ -288,11 +288,11 @@ export const Eventcal = (props) => {
                                     label="Date"
                                     variant="inline"
                                     value={state.finishday}
-                                    inputProps={{ style: { fontSize: "0.95rem" } }}
+                                    inputprops={{ style: { fontSize: "0.95rem" } }}
                                     onChange={(event) => setState({ ...state, finishday: event })}
                                     disablePast
                                     format="YYYY/MM/DD"
-                                    InputLabelProps={{
+                                    inputlabelprops={{
                                       shrink: true,
                                     }}
                                   />
@@ -323,8 +323,8 @@ export const Eventcal = (props) => {
                                     endAdornment={
                                       <InputAdornment position="end">repetitions</InputAdornment>
                                     }
-                                    inputProps={{ min: 1}}
-                                    InputLabelProps={{
+                                    inputprops={{ min: 1}}
+                                    inputlabelprops={{
                                       shrink: true,
                                     }}
                                     variant="outlined"
@@ -336,14 +336,14 @@ export const Eventcal = (props) => {
                                     Number
                                   </InputLabel>
                                   <OutlinedInput
-                                    id="outlined-number"
+                                    id="outlined-number2"
                                     label="Number"
                                     type="number"
                                     endAdornment={
                                       <InputAdornment position="end">repetitions</InputAdornment>
                                     }
-                                    inputProps={{ min: 1}}
-                                    InputLabelProps={{
+                                    inputprops={{ min: 1}}
+                                    inputlabelprops={{
                                       shrink: true,
                                     }}
                                     variant="outlined"

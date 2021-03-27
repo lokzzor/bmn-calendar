@@ -62,13 +62,13 @@ class Calendar extends React.PureComponent {
       setShowModal: false,
       locations: [],
       currentFilter: "",
-      roomname:[]
+      roomname:[],
+      roomname2:[],
     };
     this._isMounted = false;
     this.onLocationsChange = this.onLocationsChange.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);    
     
-    const LOCATIONS_SHORT = [1, 2, 3];
     const styles = ({ spacing, palette, theme }) => ({
       addButton: {
         position: "absolute",
@@ -193,11 +193,12 @@ class Calendar extends React.PureComponent {
         />
       )
     );
+    
     const handleButtonClick = (locationName, locations) => {
       if (locations.indexOf(locationName) > -1) {
         return locations.filter(location => location !== locationName);
       }
-      const nextLocations = [...locations];
+      const nextLocations = [];//...locations
       nextLocations.push(locationName);
       return nextLocations;
     };
@@ -207,7 +208,11 @@ class Calendar extends React.PureComponent {
       setTimeout(async() => { 
         const response =  await API.get("/api/get/calendarroommas");
         this.setState(() => ({ roomname: response.data[0].array_agg }));
-      }, 100);
+        var temp=[];for(let i=0;i<response.data[0].array_agg.length;i++){ temp[i]=i+1}
+        this.setState(() => ({ roomname2: temp }));
+      }, 400);
+
+
 
       const LocationSelector = withStyles(styles, { name: "LocationSelector" })(
         ({ onLocationsChange, locations, classes }) => (
@@ -225,7 +230,7 @@ class Calendar extends React.PureComponent {
               >
                 <>
                   <span className={classes.shortButtonText}>
-                    {LOCATIONS_SHORT[index]}
+                    {this.state.roomname2[index]}
                   </span>
                   <span className={classes.longButtonText}>{location}</span>
                 </>
@@ -275,7 +280,7 @@ class Calendar extends React.PureComponent {
     setTimeout(() => {
       var roomlist = [];
       for (let i = 0; i < this.props.rooms.length; i++) { roomlist[i] = this.props.rooms[i].room_name }
-      this.setState({ locations: roomlist });
+      this.setState({ locations: roomlist[0] });
     }, 400);
   }
 
@@ -318,8 +323,8 @@ class Calendar extends React.PureComponent {
     for (let i = 0; i < person.length; i++) { 
       if (person[i].conform === null) { person[i].color = '#808080';  } 
       else if(person[i].conform === 'admin'){person[i].color = "rgb(0, 101, 179)"; } 
-      else person[i].color = "blue";
-    } // ошибка
+/*       else person[i].color = "blue";
+ */    } // ошибка
     
     var test = [];
     test[0] = { fieldName: "person", instances: person };
