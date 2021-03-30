@@ -205,14 +205,15 @@ class Calendar extends React.PureComponent {
     
     const getButtonClass = (locations, classes, location) =>
       locations.indexOf(location) > -1 && classes.selectedButton;      
-      setTimeout(async() => { 
-        const response =  await API.get("/api/get/calendarroommas");
-        this.setState(() => ({ roomname: response.data[0].array_agg }));
-        var temp=[];for(let i=0;i<response.data[0].array_agg.length;i++){ temp[i]=i+1}
-        this.setState(() => ({ roomname2: temp }));
-      }, 400);
-
-
+      setTimeout(async() => {
+          const response =  await API.get("/api/get/calendarroommas");
+            if(response.data[0].array_agg === null){
+            } else{
+              var temp=[];for(let i=0;i<response.data[0].array_agg.length;i++){ temp[i]=i+1}
+              this.setState(() => ({ roomname: response.data[0].array_agg }));
+              this.setState(() => ({ roomname2: temp }));
+            }
+      }, 500);
 
       const LocationSelector = withStyles(styles, { name: "LocationSelector" })(
         ({ onLocationsChange, locations, classes }) => (
@@ -281,7 +282,7 @@ class Calendar extends React.PureComponent {
       var roomlist = [];
       for (let i = 0; i < this.props.rooms.length; i++) { roomlist[i] = this.props.rooms[i].room_name }
       this.setState({ locations: roomlist[0] });
-    }, 400);
+    }, 500);
   }
 
   componentDidUpdate() {
@@ -324,20 +325,16 @@ class Calendar extends React.PureComponent {
       if (person[i].conform === null) { person[i].color = '#808080';  } 
       else if(person[i].conform === 'admin'){person[i].color = "rgb(0, 101, 179)"; } 
 /*       else person[i].color = "blue";
- */    } // ошибка
-    
+ */    } 
     var test = [];
     test[0] = { fieldName: "person", instances: person };
     test[1] = { fieldName: "location", instances: location };
     this.setState(() => ({ resources: test }));
-    //console.log(test)
-
   }
   openModal = () => {
     this.setState({ showModal: !this.state.showModal });
   }
   render() {
-
     const { startDayHour, endDayHour, showModal, setShowModal, data, resources, locations, currentFilter } = this.state;
     //console.log(resources)
     const { classes } = this.props;

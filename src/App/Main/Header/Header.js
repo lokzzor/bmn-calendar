@@ -13,13 +13,18 @@ import TouchAppIcon from '@material-ui/icons/TouchApp';
 import {getCalendarNewEvent} from '../../../Actions/simpleget'
 import {logout} from '../../../Reducers/userReducer'
 import {useDispatch, useSelector} from 'react-redux';
+import { Disconnect } from "../../Functions/Disconnect/disconnect"
 
     const AppHeader = () => {
         const isAuth = useSelector(state => state.user);
 
+        const [event, eventShowModal] = React.useState(false);
+        const evnt = () => { eventShowModal(!event);};
         const count = useSelector(state => state.other.countnewevent);
-        const dispatch = useDispatch();            
-        React.useEffect(() => { dispatch(getCalendarNewEvent()) }, [dispatch])
+        const dispatch = useDispatch();      
+        React.useEffect(() => { if(count === undefined) evnt(); }, [count]);      
+        React.useEffect(() => { dispatch(getCalendarNewEvent()) }, [dispatch]);
+ 
         return (
             <>
             <div className="header-bar">
@@ -56,6 +61,7 @@ import {useDispatch, useSelector} from 'react-redux';
                         <span className="nonemenu">Log Out</span></Link>
                     </div>}
                 </div>
+                <Disconnect close={evnt.bind(this)} showModal={event} setShowModal={eventShowModal} />                    
             </div>
             </>
         )
