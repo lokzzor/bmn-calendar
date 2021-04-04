@@ -207,13 +207,17 @@ class Calendar extends React.PureComponent {
       locations.indexOf(location) > -1 && classes.selectedButton;      
       setTimeout(async() => {
           const response =  await API.get("/api/get/calendarroommas");
-            if(response.data[0].array_agg === null){
-            } else{
-              var temp=[];for(let i=0;i<response.data[0].array_agg.length;i++){ temp[i]=i+1}
-              this.setState(() => ({ roomname: response.data[0].array_agg }));
+          var newresponse = await response.data[0].array_agg;
+            if(newresponse === null){
+              this.event();
+            } 
+            else if(response.data[0] === "Error"){ this.event();            }
+            else{
+              var temp=[];for(let i=0;i<newresponse.length;i++){ temp[i]=i+1}
+              this.setState(() => ({ roomname: newresponse }));
               this.setState(() => ({ roomname2: temp }));
             }
-      }, 500);
+      }, 400);
 
       const LocationSelector = withStyles(styles, { name: "LocationSelector" })(
         ({ onLocationsChange, locations, classes }) => (
@@ -272,8 +276,8 @@ class Calendar extends React.PureComponent {
   componentDidMount() {
     this._isMounted = true;
     this.event();
+    //if(this.state.data===[]) { this.intervalId = setInterval(this.event.bind(this), 5000);}
     this.intervalId = setInterval(this.event.bind(this), 5000);
-
     var roomlist = [];
     for (let i = 0; i < this.props.rooms.length; i++) { roomlist[i] = this.props.rooms[i].room_name }
     this.setState({ locations: roomlist });
@@ -300,7 +304,7 @@ class Calendar extends React.PureComponent {
   }
 
   async event() {
-    const response = await API.get("/api/get/calendarselect")
+    const response = await API.get("/api/get/calendarselect");
     const data = await response.data.map(n => ({
       title: n.event_name,
       startDate: n.event_start,
@@ -309,7 +313,6 @@ class Calendar extends React.PureComponent {
       person: n.person_login,
       conform: n.admin_login
     }));
-    
     this.setState(() => ({ data: data }));
 
     const location = await response.data.map(n => ({
@@ -336,9 +339,9 @@ class Calendar extends React.PureComponent {
   }
   render() {
     const { startDayHour, endDayHour, showModal, setShowModal, data, resources, locations, currentFilter } = this.state;
-    //console.log(resources)
     const { classes } = this.props;
-    let filteredData = data.filter( dataItem => locations.indexOf(dataItem.location) > -1);
+    var filteredData;
+    if(locations !==undefined){ filteredData = data.filter( dataItem => locations.indexOf(dataItem.location) > -1); } else filteredData= [];
     const lowerCaseFilter = currentFilter.toLowerCase();
     filteredData = filteredData.filter(
       dataItem =>

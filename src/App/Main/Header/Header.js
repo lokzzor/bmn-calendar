@@ -19,10 +19,9 @@ import { Disconnect } from "../../Functions/Disconnect/disconnect"
         const isAuth = useSelector(state => state.user);
 
         const [event, eventShowModal] = React.useState(false);
-        const evnt = () => { eventShowModal(!event);};
         const count = useSelector(state => state.other.countnewevent);
         const dispatch = useDispatch();      
-        React.useEffect(() => { if(count === undefined) evnt(); }, [count]);      
+        React.useEffect(() => { if(count === undefined){ eventShowModal(true);} }, [count]);      
         React.useEffect(() => { dispatch(getCalendarNewEvent()) }, [dispatch]);
  
         return (
@@ -61,7 +60,7 @@ import { Disconnect } from "../../Functions/Disconnect/disconnect"
                         <span className="nonemenu">Log Out</span></Link>
                     </div>}
                 </div>
-                <Disconnect close={evnt.bind(this)} showModal={event} setShowModal={eventShowModal} />                    
+                <Disconnect showModal={event} setShowModal={eventShowModal} />                    
             </div>
             </>
         )
