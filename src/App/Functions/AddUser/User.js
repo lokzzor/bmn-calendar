@@ -167,7 +167,7 @@ export const Adnewuser = (props) => {
                                                             color="primary"
                                                         />
                                                     }
-                                                    label="Block Person"
+                                                    label="Active Person"
                                                 />
                                             </div>
                                         </div>

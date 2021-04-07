@@ -23,13 +23,13 @@ import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 
 const Weather = () => {
   const [time, setTime] = useState(moment().format("MMMM Do YYYY | HH:mm"));
-  var hour = new Date().getHours(); var background; var iconweather;
+  var hour = new Date().getHours(); var background;
   if (hour >= 6 && hour < 18) {  background=day; } else if (hour >= 18) { background=night; } else { background=night; }
 
   const dispatch = useDispatch();
   const weather = useSelector(state => state.other.weather);
-  const {clouds, vlag, wind, temp, tempfeels_like, icon, descrip} = weather; 
-  if(icon==="icon1"){ iconweather=icon1 } else if(icon==="icon1n"){ iconweather=icon1n } else if(icon==="icon2n"){ iconweather=icon2n } else if(icon==="icon3d"){ iconweather=icon3d } else if(icon==="icon9"){ iconweather=icon9 } else if(icon==="icon11"){ iconweather=icon11 } else if(icon==="icon13"){ iconweather=icon13} else if(icon==="icon50"){ iconweather=icon50 }
+  const {clouds, vlag, wind, temp, tempfeels_like, descrip} = weather;
+  var icon="icon1";
   
   React.useEffect(() => { dispatch(weatherobj()); 
   }, [dispatch])
@@ -54,12 +54,54 @@ const Weather = () => {
               </div>
               <div className="info-deg cursor">
                 <div className="cloudicon">
-                  <img
+                  {icon==="icon1" && <img
                     id="iconweather"
-                    src={iconweather}
+                    src={icon1}
                     style={{ width: "8em" }}
                     alt=""
-                  />
+                  />}
+                  {icon==="icon1n" && <img
+                    id="iconweather"
+                    src={icon1n}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon2n" && <img
+                    id="iconweather"
+                    src={icon2n}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon3d" && <img
+                    id="iconweather"
+                    src={icon3d}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon9" && <img
+                    id="iconweather"
+                    src={icon9}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon11" && <img
+                    id="iconweather"
+                    src={icon11}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon13" && <img
+                    id="iconweather"
+                    src={icon13}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
+                  {icon==="icon50" && <img
+                    id="iconweather"
+                    src={icon50}
+                    style={{ width: "8em" }}
+                    alt=""
+                  />}
                 </div>
                 <div className="temp cursor">
                   {temp ? (

@@ -2,7 +2,6 @@ import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { ViewState } from '@devexpress/dx-react-scheduler';
 //import Room from '@material-ui/icons/Room';
-import { connect } from 'react-redux'
 import { teal, orange, red, blue } from "@material-ui/core/colors";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import TextField from "@material-ui/core/TextField";
@@ -12,6 +11,7 @@ import { connectProps } from "@devexpress/dx-react-core";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Eventcal } from "../../Functions/AddEvent/AddEvent"
+import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Scheduler,
@@ -23,6 +23,7 @@ import {
   ViewSwitcher,
   DateNavigator,
   MonthView,
+  CurrentTimeIndicator
 } from '@devexpress/dx-react-scheduler-material-ui';
 import './Calendar.css';
 import API from '../../../Reducers/API';
@@ -31,13 +32,6 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 //import { Eventcal } from "../../functions/addevent/event"
 
-const Rooms = state => {
-  var roomlist = [];
-  setTimeout(function () { for (let i = 0; i < state.other.rooms; i++) { roomlist[i] = state.other.rooms[i].room_name } }, 1000);
-  return {
-    rooms: state.other.rooms
-  }
-}
 
 const styless = ({ spacing }) => ({
   addButton: {
@@ -49,6 +43,92 @@ const styless = ({ spacing }) => ({
     marginTop: '-7%'
   },
 });
+const useStyles = makeStyles(theme => ({
+  line: {
+    height: '2px',
+    borderTop: `2px ${theme.palette.primary.main} dotted`,
+    width: '100%',
+    transform: 'translate(0, -1px)',
+  },
+  circle: {
+    width: theme.spacing(1.5),
+    height: theme.spacing(1.5),
+    borderRadius: '50%',
+    transform: 'translate(-50%, -50%)',
+    background: theme.palette.primary.main,
+  },
+  nowIndicator: {
+    position: 'absolute',
+    zIndex: 1,
+    left: 0,
+    top: ({ top }) => top,
+  },
+  shadedCell: {
+    backgroundColor: fade(theme.palette.primary.main, 0.08),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.primary.main, 0.12),
+    },
+    '&:focus': {
+      backgroundColor: fade(theme.palette.primary.main, 0.20),
+      outline: 0,
+    },
+  },
+  shadedPart: {
+    backgroundColor: fade(theme.palette.primary.main, 0.08),
+    position: 'absolute',
+    height: ({ shadedHeight }) => shadedHeight,
+    width: '100%',
+    left: 0,
+    top: 0,
+    'td:focus &': {
+      backgroundColor: fade(theme.palette.primary.main, 0.12),
+    },
+  },
+  appointment: {
+    backgroundColor: teal[300],
+    '&:hover': {
+      backgroundColor: teal[400],
+    },
+  },
+  shadedAppointment: {
+    backgroundColor: teal[200],
+    '&:hover': {
+      backgroundColor: teal[300],
+    },
+  },
+}));
+const TimeIndicator = ({
+  top, ...restProps
+}) => {
+  const classes = useStyles({ top });
+  return (
+    <div {...restProps}>
+      <div className={classNames(classes.nowIndicator, classes.circle)} />
+      <div className={classNames(classes.nowIndicator, classes.line)} />
+    </div>
+  );
+};
+const TimeTableCell = ({
+  currentTimeIndicatorPosition, isShaded, ...restProps
+}) => {
+  const classes = useStyles({ shadedHeight: currentTimeIndicatorPosition });
+  const isNow = !!currentTimeIndicatorPosition;
+  return (
+    <WeekView.TimeTableCell
+      isShaded={isShaded && !isNow}
+      currentTimeIndicatorPosition={currentTimeIndicatorPosition}
+      className={classNames({
+        [classes.shadedCell]: isShaded && !isNow,
+      })}
+      {...restProps}
+    >
+      {isNow && isShaded && (
+        <div className={classes.shadedPart} />
+      )}
+    </WeekView.TimeTableCell>
+  );
+};
+
 class Calendar extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -68,6 +148,7 @@ class Calendar extends React.PureComponent {
     this._isMounted = false;
     this.onLocationsChange = this.onLocationsChange.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);    
+    
     
     const styles = ({ spacing, palette, theme }) => ({
       addButton: {
@@ -203,65 +284,54 @@ class Calendar extends React.PureComponent {
       return nextLocations;
     };
     
-    const getButtonClass = (locations, classes, location) =>
-      locations.indexOf(location) > -1 && classes.selectedButton;      
-      setTimeout(async() => {
-          const response =  await API.get("/api/get/calendarroommas");
-          var newresponse = await response.data[0].array_agg;
-            if(newresponse === null){
-              this.event();
-            } 
-            else if(response.data[0] === "Error"){ this.event();            }
-            else{
-              var temp=[];for(let i=0;i<newresponse.length;i++){ temp[i]=i+1}
-              this.setState(() => ({ roomname: newresponse }));
-              this.setState(() => ({ roomname2: temp }));
-            }
-      }, 400);
+    const getButtonClass = (locations, classes, location) => {  
+      //console.log(locations)
+        return locations.indexOf(location) > -1 && classes.selectedButton;
+    }
 
-      const LocationSelector = withStyles(styles, { name: "LocationSelector" })(
-        ({ onLocationsChange, locations, classes }) => (
-          <ButtonGroup className={classes.locationSelector}>
-            {this.state.roomname.map((location, index) => (
-              <Button
-                className={classNames(
-                  classes.button, "newbut",
-                  getButtonClass(locations, classes, location)
-                )}
-                onClick={() =>
-                  onLocationsChange(handleButtonClick(location, locations))
-                }
-                key={location}
-              >
-                <>
-                  <span className={classes.shortButtonText}>
-                    {this.state.roomname2[index]}
-                  </span>
-                  <span className={classes.longButtonText}>{location}</span>
-                </>
-              </Button>
-            ))}
-          </ButtonGroup>
-        )
-      );
-      const FlexibleSpace = withStyles(styles, { name: "FlexibleSpace" })(
-        ({
-          classes,
-          locations,
-          filter,
-          onLocationsChange,
-          onFilterChange,
-          ...restProps
-        }) => (
-          <Toolbar.FlexibleSpace {...restProps} className={classes.flexibleSpace}>
-            <Filter filter={filter} onFilterChange={onFilterChange} />
-            <LocationSelector
-              locations={locations}
-              onLocationsChange={onLocationsChange}
-            />
-          </Toolbar.FlexibleSpace>
-        )
-      );
+    const LocationSelector = withStyles(styles, { name: "LocationSelector" })(
+      ({ onLocationsChange, locations, classes }) => (
+        <ButtonGroup className={classes.locationSelector}>
+          {this.state.roomname.map((location, index) => (
+            <Button
+              className={classNames(
+                classes.button, "newbut",
+                getButtonClass(locations, classes, location)
+              )}
+              onClick={() =>
+                onLocationsChange(handleButtonClick(location, locations))
+              }
+              key={location}
+            >
+              <>
+                <span className={classes.shortButtonText}>
+                  {this.state.roomname2[index]}
+                </span>
+                <span className={classes.longButtonText}>{location}</span>
+              </>
+            </Button>
+          ))}
+        </ButtonGroup>
+      )
+    );
+    const FlexibleSpace = withStyles(styles, { name: "FlexibleSpace" })(
+      ({
+        classes,
+        locations,
+        filter,
+        onLocationsChange,
+        onFilterChange,
+        ...restProps
+      }) => (
+        <Toolbar.FlexibleSpace {...restProps} className={classes.flexibleSpace}>
+          <Filter filter={filter} onFilterChange={onFilterChange} />
+          <LocationSelector
+            locations={locations}
+            onLocationsChange={onLocationsChange}
+          />
+        </Toolbar.FlexibleSpace>
+      )
+    );
 
     this.flexibleSpace = connectProps(FlexibleSpace, () => {
       const { locations, currentFilter } = this.state;
@@ -275,18 +345,9 @@ class Calendar extends React.PureComponent {
   }
   componentDidMount() {
     this._isMounted = true;
+    this.firststart();
     this.event();
-    //if(this.state.data===[]) { this.intervalId = setInterval(this.event.bind(this), 5000);}
-    this.intervalId = setInterval(this.event.bind(this), 5000);
-    var roomlist = [];
-    for (let i = 0; i < this.props.rooms.length; i++) { roomlist[i] = this.props.rooms[i].room_name }
-    this.setState({ locations: roomlist });
-
-    setTimeout(() => {
-      var roomlist = [];
-      for (let i = 0; i < this.props.rooms.length; i++) { roomlist[i] = this.props.rooms[i].room_name }
-      this.setState({ locations: roomlist[0] });
-    }, 500);
+    this.intervalId = setInterval(this.event.bind(this), 5000); //if(this.state.data===[]) { this.intervalId = setInterval(this.event.bind(this), 5000);}
   }
 
   componentDidUpdate() {
@@ -303,9 +364,24 @@ class Calendar extends React.PureComponent {
     this.setState({ currentFilter: nextFilter });
   }
 
+  async firststart(){
+    const response2 =  await API.get("/api/get/calendarroommas");
+    var newresponse = await response2.data[0].array_agg;
+      if(newresponse === null){
+        this.event();
+      } 
+      else if(response2.data[0] === "Error"){ this.event();            }
+      else{
+        var temp=[];for(let i=0;i<newresponse.length;i++){ temp[i]=i+1}
+        await this.setState(() => ({ roomname: newresponse }));
+        await this.setState(() => ({ locations: newresponse[0] }));
+        await this.setState(() => ({ roomname2: temp }));
+      }
+  }
   async event() {
     const response = await API.get("/api/get/calendarselect");
     const data = await response.data.map(n => ({
+      id:n.event_id,
       title: n.event_name,
       startDate: n.event_start,
       endDate: n.event_end,
@@ -313,26 +389,27 @@ class Calendar extends React.PureComponent {
       person: n.person_login,
       conform: n.admin_login
     }));
-    this.setState(() => ({ data: data }));
+    await this.setState(() => ({ data: data }));
 
-    const location = await response.data.map(n => ({
+    const locat = await response.data.map(n => ({
       id: n.room_name,
-      text: "Room - " + n.room_name
+      text: "Room - " + n.room_name,
     }));
-    const person = await response.data.map(n => ({
-      id: n.person_login,
+    const pers = await response.data.map(n => ({
+      id: n.event_id,
       text: "Author - " + n.person_login,
       conform: n.admin_login,
     }));
-    for (let i = 0; i < person.length; i++) { 
-      if (person[i].conform === null) { person[i].color = '#808080';  } 
-      else if(person[i].conform === 'admin'){person[i].color = "rgb(0, 101, 179)"; } 
-/*       else person[i].color = "blue";
- */    } 
-    var test = [];
-    test[0] = { fieldName: "person", instances: person };
-    test[1] = { fieldName: "location", instances: location };
-    this.setState(() => ({ resources: test }));
+
+    for (let i = 0; i < pers.length; i++) { 
+      if (pers[i].conform === null) { pers[i].color = '#808080';  
+      } else{
+        pers[i].color = "rgb(0, 101, 179)";
+      }  //else if(person[i].conform === 'admin'){person[i].color = "rgb(0, 101, 179)"; } 
+    } 
+    var test = []; 
+    test[0] = { fieldName: "id", title:"Person", instances: pers };    test[1] = { fieldName: "location", title:"Location", instances: locat };
+    await this.setState(() => ({ resources: test }));
   }
   openModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -348,7 +425,6 @@ class Calendar extends React.PureComponent {
         dataItem.title.toLowerCase().includes(lowerCaseFilter) ||
         dataItem.location.toLowerCase().includes(lowerCaseFilter)
     );
-
     return (
       <Paper className="classpapper">
         <div className="hedcalenar">
@@ -369,6 +445,7 @@ class Calendar extends React.PureComponent {
             displayName="Week"
             startDayHour={startDayHour}
             endDayHour={endDayHour}
+            timeTableCellComponent={TimeTableCell}
           />
           <MonthView DayScaleCell={2} />
           <Toolbar flexibleSpaceComponent={this.flexibleSpace} />
@@ -378,6 +455,11 @@ class Calendar extends React.PureComponent {
           <AppointmentTooltip
             showCloseButton />
           <Resources data={resources}  />
+          <CurrentTimeIndicator
+            indicatorComponent={TimeIndicator}
+            shadePreviousCells
+            shadePreviousAppointments
+          />
         </Scheduler>
         <Eventcal close={this.openModal} showModal={showModal} setShowModal={setShowModal} />
         <div className="fab"><Fab color="secondary" onClick={this.openModal} className={classes.addButton} > <AddIcon /> </Fab></div>
@@ -385,4 +467,4 @@ class Calendar extends React.PureComponent {
     );
   }
 }
-export default withStyles(styless, { name: 'EditingDemo' })(connect(Rooms)(Calendar))
+export default withStyles(styless, { name: 'EditingDemo' })(Calendar)

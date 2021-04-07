@@ -158,7 +158,7 @@ export const Eventcal = (props) => {
                       <div className="time-event-block">
                         {!state.checkedAll && <MuiPickersUtilsProvider locale='ru' utils={MomentUtils}>
                           <KeyboardDateTimePicker className="border"                          
-                            style={{width: "13rem"}}
+                            style={{width: "13.2rem"}}
                             inputVariant="outlined"
                             ampm={false}
                             label="From"
@@ -171,7 +171,7 @@ export const Eventcal = (props) => {
                               shrink: true,
                             }}
                           />
-                          <KeyboardDateTimePicker className="border" style={{width: "13rem", margin: "1.5em 0px"}}
+                          <KeyboardDateTimePicker className="border" style={{width: "13.2rem", margin: "1.5em 0px"}}
                             inputVariant="outlined"
                             ampm={false}
                             label="To"

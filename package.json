@@ -43,7 +43,7 @@
     "fsevents": "^2.3.2"
   },
   "scripts": {
-    "start": "HOST=bmn-web.jinr.ru PORT=80 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

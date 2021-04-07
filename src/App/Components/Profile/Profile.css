@@ -108,23 +108,26 @@
     display: flex;
 }
 .profile-button {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1.1px;
-    padding: 10px 25px;
-    border-radius: 25px 25px 25px 25px;
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    letter-spacing: 1.1px !important;
+    padding: 7px 23px !important;
+    border-radius: 25px 25px 25px 25px !important;
     -moz-border-radius: 25px 25px 25px 25px;
     -webkit-border-radius: 25px 25px 25px 25px;
-    border: 0px solid #000000;
-    background: #0951ab;
-    text-decoration: none;
-    transition: 0.25s ease;
-    position: absolute;
-    bottom: 5%;
-    font-family: "Ubuntu", sans-serif;
+    border: 0px solid #000000 !important;
+    background-color: #0951ab !important;
+    text-decoration: none  !important;
+    transition: 0.25s ease !important;
+    font-family: "Ubuntu", sans-serif !important;
+    text-transform: none !important;
 }
-
+.profile-butt{
+    position: absolute !important;
+    bottom: 5%;
+    padding: 6px 23px !important;
+}
 /*
 @media (max-width: 600px) {
 } */

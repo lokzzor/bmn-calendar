@@ -32,7 +32,7 @@
     font-size: 23px;
   }
   .profile-button {
-    font-size: 16px;
+    font-size: 16px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -151,7 +151,7 @@
     font-size: 23px;
   }
   .profile-button {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -249,7 +249,7 @@
     font-size: 22px;
   }
   .profile-button {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -368,7 +368,7 @@
     font-size: 20px;
   }
   .profile-button {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -503,7 +503,7 @@
     font-size: 20px;
   }
   .profile-button {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -638,7 +638,7 @@
     font-size: 20px;
   }
   .profile-button {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -773,7 +773,7 @@
     font-size: 19px;
   }
   .profile-button {
-    font-size: 14.5px;
+    font-size: 14.5px !important;
   }
   /* Scalendar */
   .scalendar-box-title {
@@ -909,7 +909,7 @@
     font-size: 18px;
   }
   .profile-button {
-    font-size: 14px;
+    font-size: 14px !important;
   }
   /* Scalendar */
   .scalendar-box-title {

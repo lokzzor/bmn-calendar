@@ -22,6 +22,7 @@
     width: 100%;
     z-index: 5;
     background-color: rgb(0, 101, 179);
+    cursor: default;
     color: white;
     font-size: 0.9rem;
     border-top-left-radius: 15px;
