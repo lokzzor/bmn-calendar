@@ -34,7 +34,7 @@ const Secondchart = () => {
     },
     series: [
       {
-        name: "Сreated Events in the room",
+        name: "Created Rooms in the Building",
         type: "pie",
         animationDuration: 3000,
         animationEasing: "quarticInOut",

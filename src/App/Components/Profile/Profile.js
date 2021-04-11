@@ -38,7 +38,7 @@ function Profile() {
           </div>
 
           <div className="profile-but">
-            {!isAuth.isAuth && <Link className="profile-butt" to="/account"><Button variant="contained" size="small" className="profile-button">Sing In</Button></Link>}
+            {!isAuth.isAuth && <Link className="profile-butt" to="/account"><Button variant="contained" size="small" className="profile-button">Sign In</Button></Link>}
             {isAuth.isAuth && <Link className="profile-butt" to="/" onClick={() => { dispatch(logout()) }} ><Button variant="contained" size="small" className="profile-button">Log Out</Button></Link>}
           </div>
         </div>

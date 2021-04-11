@@ -68,6 +68,7 @@
   .info-deg {
     display: flex;
     padding: 0% 3% 0% 14%;
+    align-items: center;
   }
   
   .temp {
@@ -101,7 +102,9 @@
     font: normal 130%/1.4 "SpaceGrotesk", "Lato", "Open Sans",
       "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   }
-
+.weatherheigth{
+  height: 46px;
+}
 /* ANimations */
 
 #circle{

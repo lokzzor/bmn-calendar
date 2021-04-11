@@ -1,7 +1,8 @@
 @media only screen and (min-width: 2100px) {
   /* Content */
   .home-main-container-prew {
-    grid-template-columns: 17em 21.5em 35em;
+    grid-template-columns: 17em 20em 33em;
+    grid-auto-rows: minmax(303px, auto);
   }
   /* Header */
   .header-bar {
@@ -53,8 +54,14 @@
     padding: 0px;
   }
   /* Weather */
+  .flex-2day {
+    font-size: 25px;
+  }
+  .temp{
+    font-size: 4.5rem;
+  }
   .info-deg {
-    padding: 3% 3% 0% 14%;
+    padding: 0% 3% 0% 14%;
   }
   .city-info {
     padding: 6% 0% 6% 10%;
@@ -124,14 +131,13 @@
   .dictinary_section_header p:last-child {
     font-size: 1em;
   }
-  .dictinary_section_content {}
-  .dictinary_section_content2 {}
 }
 
 @media screen and (max-width: 2100px) and (min-width: 1925px) {
   /* Content */
   .home-main-container-prew {
     grid-template-columns: 16em 20em 34em;
+    grid-auto-rows: minmax(290px, auto);
   }
   /* Header */
   .header-bar {
@@ -167,20 +173,20 @@
     font-size: 19px;
   }
   .small-calendar-day {
-    font-size: 5.8rem;
+    font-size: 4.4rem;
   }
   /* Weather */
+  .flex-2day {
+    font-size: 25px;
+  }
+  .temp{
+    font-size: 4.5rem;
+  }
   .info-deg {
-    padding: 4% 7% 0% 7%;
+    padding: 0% 7% 0% 7%;
   }
   .city-info {
-    padding: 6% 0% 6% 10%;
-  }
-  .flex-2day {
-    font-size: 28px;
-  }
-  .temp {
-    font-size: 5.5rem;
+    padding: 6% 0% 3% 10%;
   }
   /* Login */
   .containerlogin {
@@ -220,9 +226,9 @@
 @media screen and (max-width: 1925px) and (min-width: 1824px) {
   /* Content */
   .home-main-container-prew {
-    grid-template-columns: 16em 20em 35.5em;
-    grid-auto-rows: minmax(335px, auto);
-  }
+    grid-template-columns: 16em 20em 34em;
+    grid-auto-rows: minmax(285px, auto);
+    }
   /* Header */
   .header-bar {
     height: 90px;
@@ -245,6 +251,9 @@
   .profile-box-title {
     font-size: 21px;
   }
+  .profile-name {
+    padding-top: 3%;
+}
   .profile-name h1 {
     font-size: 22px;
   }
@@ -265,20 +274,20 @@
     font-size: 17px;
   }
   .small-calendar-day {
-    font-size: 5.8rem;
+    font-size: 4.4rem;
   }
   /* Weather */
-  .info-deg {
-    padding: 4% 7% 0% 7%;
-  }
-  .city-info {
-    padding: 6% 0% 6% 10%;
-  }
   .flex-2day {
     font-size: 25px;
   }
-  .temp {
-    font-size: 5.45rem;
+  .temp{
+    font-size: 4.5rem;
+  }
+  .info-deg {
+    padding: 0% 7% 0% 7%;
+  }
+  .city-info {
+    padding: 6% 0% 3% 10%;
   }
   /* Login */
   .containerlogin {
@@ -340,7 +349,7 @@
   /* Content */
   .home-main-container-prew {
     grid-template-columns: 15.2em 21em 35em;
-    grid-auto-rows: minmax(330px, auto);
+    grid-auto-rows: minmax(280px, auto);
   }
   /* Header */
   .header-bar {
@@ -378,30 +387,26 @@
     font-size: 15.8px;
   }
   .small-calendar-titleevent {
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
   .layer {
     font-size: 17px;
   }
   .small-calendar-day {
-    font-size: 6.2rem;
+    font-size: 4.4rem;
   }
   /* Weather */
+  .flex-2day {
+    font-size: 25px;
+  }
+  .temp{
+    font-size: 4.5rem;
+  }
   .info-deg {
-    padding: 4% 7% 0% 7%;
-    font-size: 13.5px;
+    padding: 0% 7% 0% 7%;
   }
   .city-info {
-    padding: 5% 0% 6% 10%;
-  }
-  .flex-2day {
-    font-size: 26px;
-  }
-  .temp {
-    font-size: 5.5rem;
-  }
-  .icondeg {
-    font-size: 14px;
+    padding: 6% 0% 3% 10%;
   }
   /* Login */
   .containerlogin {
@@ -474,8 +479,8 @@
 @media screen and (max-width: 1700px) and (min-width: 1600px) {
   /* Content */
   .home-main-container-prew {
-    grid-template-columns: 15.4em 21em 35em;
-    grid-auto-rows: minmax(330px, auto);
+    grid-template-columns: 15.2em 21em 35em;
+    grid-auto-rows: minmax(278px, auto);
   }
   /* Header */
   .header-bar {
@@ -496,6 +501,9 @@
     left: 1px;
   }
   /* Profile */
+  .profile-icon {
+    padding: 24px;
+  }
   .profile-box-title {
     font-size: 19.5px;
   }
@@ -513,30 +521,26 @@
     font-size: 15.8px;
   }
   .small-calendar-titleevent {
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
   .layer {
     font-size: 17px;
   }
   .small-calendar-day {
-    font-size: 6.2rem;
+    font-size: 4.4rem;
   }
   /* Weather */
+  .flex-2day {
+    font-size: 25px;
+  }
+  .temp{
+    font-size: 4.5rem;
+  }
   .info-deg {
-    padding: 4% 7% 0% 7%;
-    font-size: 13.5px;
+    padding: 0% 7% 0% 7%;
   }
   .city-info {
-    padding: 5% 0% 6% 10%;
-  }
-  .flex-2day {
-    font-size: 26px;
-  }
-  .temp {
-    font-size: 5.5rem;
-  }
-  .icondeg {
-    font-size: 14px;
+    padding: 6% 0% 3% 10%;
   }
   /* Login */
   .containerlogin {
@@ -610,8 +614,7 @@
   /* Content */
   .home-main-container-prew {
     grid-template-columns: 15em 19em 32em;
-    grid-auto-rows: minmax(320px, auto);
-  }
+    grid-auto-rows: minmax(277px, auto);  }
   /* Header */
   .header-bar {
     height: 90px;
@@ -631,6 +634,9 @@
     left: 1px;
   }
   /* Profile */
+  .profile-icon {
+    padding: 24px;
+  }
   .profile-box-title {
     font-size: 19px;
   }
@@ -648,30 +654,29 @@
     font-size: 15.8px;
   }
   .small-calendar-titleevent {
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
   .layer {
     font-size: 17px;
   }
   .small-calendar-day {
-    font-size: 5.7rem;
+    font-size: 4.4rem;
   }
   /* Weather */
+  .flex-2day {
+    font-size: 25px;
+  }
+  .temp{
+    font-size: 4.3rem;
+  }
   .info-deg {
-    padding: 4% 7% 2% 7%;
-    font-size: 13px;
+    padding: 0% 7% 0% 7%;
   }
   .city-info {
-    padding: 5% 0% 6% 10%;
+    padding: 6% 0% 3% 10%;
   }
-  .flex-2day {
-    font-size: 26px;
-  }
-  .temp {
-    font-size: 5.2rem;
-  }
-  .icondeg {
-    font-size: 13px;
+  .weatherheigth{
+    height: 41px;
   }
   /* Login */
   .containerlogin {
@@ -745,7 +750,7 @@
   /* Content */
   .home-main-container-prew {
     grid-template-columns: 14em 18em 31em;
-    grid-auto-rows: minmax(305px, auto);
+    grid-auto-rows: minmax(270px, auto);  
   }
   /* Header */
   .header-bar {
@@ -766,6 +771,9 @@
     left: 1px;
   }
   /* Profile */
+  .profile-icon {
+    padding: 24px;
+  }
   .profile-box-title {
     font-size: 18px;
   }
@@ -783,31 +791,29 @@
     font-size: 15px;
   }
   .small-calendar-titleevent {
-    font-size: 15px;
+    font-size: 14.5px;
   }
   .layer {
     font-size: 16px;
   }
   .small-calendar-day {
-    font-size: 5.3rem;
+    font-size: 4.4rem;
   }
   /* Weather */
-  .info-deg {
-    padding: 4% 7% 2% 7%;
-    font-size: 13px;
-  }
-  .city-info {
-    padding: 5% 0% 6% 10%;
-    font-size: 13px;
-  }
   .flex-2day {
     font-size: 25px;
   }
-  .temp {
-    font-size: 5.1rem;
+  .temp{
+    font-size: 4rem;
   }
-  .icondeg {
-    font-size: 12.4px;
+  .info-deg {
+    padding: 0% 7% 0% 7%;
+  }
+  .city-info {
+    padding: 6% 0% 3% 10%;
+  }
+  .weatherheigth{
+    height: 39px;
   }
   /* Login */
   .containerlogin {
@@ -881,8 +887,12 @@
   /* Content */
   .home-main-container-prew {
     grid-template-columns: 15em 18em;
-    grid-auto-rows: minmax(295px, auto);
+    grid-auto-rows: minmax(270px, auto);  
   }
+  .home-main-container-calendar {
+
+    width: 98%;
+}
   /* Header */
   .header-bar {
     height: 80px;
@@ -925,7 +935,7 @@
     font-size: 15px;
   }
   .small-calendar-day {
-    font-size: 5rem;
+    font-size: 4.6rem;
   }
   /* Weather */
   .flex-2side {
